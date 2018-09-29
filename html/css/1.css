@@ -1,0 +1,116 @@
+.one{
+}
+.one1,.one2,.one3,.three1,.two,.three2{
+	margin-bottom:20px;
+}
+.one1-first{
+	height:100%;
+	width:100%;
+	background:white;
+	padding:10px;
+}
+.one1-second,.one2-second,.one3-second{
+	height:50px;
+	width:50px;
+	border-radius:50%;
+	margin:0 auto;
+}
+.one1-second{
+background:#66ba12;
+}
+.one2-second{
+background: purple;
+}
+.one3-second{
+background: #4cb7e5;
+}
+.icon-yun,.icon-user,.icon-18{
+	color:white;
+	text-align: center;
+	line-height: 50px;
+	font-size:1.7em;
+	font-weight:bold;
+}
+.span1,.span3,.span5{
+	font-size:1.7em;
+	display:block;
+	margin-bottom: 0;
+	padding-bottom: 0;
+}
+.span2,.span4,.span6{
+	padding-top:0;
+	font-size:0.6em;
+	color:#999;
+}
+.pad{
+	height:20px;
+}
+.Img{
+	height:70px;
+	width:100%;
+	background-size:100% 100%;
+}
+.two{
+	/*background:green;*/
+	height:250px;
+}
+.two-first{
+	position:absolute;
+	z-index:999;
+	left:280px;
+	top:30px;
+   
+}
+.three1-first{
+	top:0px;
+	left:20px;
+	position:absolute;
+}
+.three2-first{
+	top:135px;
+	left:20px;
+	position:absolute;
+}
+.s3{
+  font-size:1.2em;
+  display: block;
+  font-weight: bold;
+  color:purple;
+}
+.s1{
+	color:#66ba12;
+	font-size:1.4em;
+	display:block;
+	font-weight:bold;
+}
+.s5{
+   color:#5c9c49;
+	font-size:1.2em;
+	display:block;
+	font-weight:bold;
+}
+.s2,.s4,.s6{
+	color:#999;
+	font-size:0.5em;
+}
+.three1,.three2{
+	height:115px;
+	/*background:purple;*/
+}
+.Img1{
+height:115px;
+width:100%;
+background-size:100% 100%;
+}
+.four,.five{
+	height:500px;
+
+}
+.four{
+	/*background:yellow;*/
+}
+.five1,.five2{
+	height:240px;
+	margin-bottom:20px;
+	/*background:purple;*/
+}

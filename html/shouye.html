@@ -1,0 +1,229 @@
+<link rel="stylesheet" href="./html/css/1.css">
+ <script src="http://cdn.hcharts.cn/highcharts/highcharts.js"></script>
+ <script>
+window.onload=function(){
+
+
+drawVis();
+drawupTime();
+drawSales();
+function drawVis(){
+	var chart = Highcharts.chart('two', {
+	chart:{
+		margin:[0,0,0,0],
+	},
+	colors:['#66bb0d','#ccc'],
+	credits:{
+		enabled:false
+	},
+	title: {
+		text: ''
+	},
+	xAxis: {
+		visible:false,
+	},
+	yAxis: {
+		visible:false,
+		title: {
+			text: ''
+		}
+	},
+	legend: {
+		floating:true,
+		layout: 'vertical',
+		align: 'right',
+		verticalAlign: 'top'
+	},
+	plotOptions: {
+		series: {
+			label: {
+				connectorAllowed: false
+			},
+			pointStart: 2010
+		}
+	},
+	series: [{
+		name: 'Pageviews',
+		data: [43934, 52503, 57177, 69658, 97031, 19931, 137133, 154175,24916, 14064, 29742, 29851, 82490, 50282, 38121, 240434]
+	}, {
+		name: 'Visitors',
+		data: [24916, 24064, 29742, 29851, 32490, 30282, 38121, 40434,43934, 52503, 57177, 69658, 97031, 119931, 137133, 154175]
+	}],
+	responsive: {
+		rules: [{
+			condition: {
+				maxWidth: 500
+			},
+			chartOptions: {
+				legend: {
+		            floating:true,
+					layout: 'horizontal',
+					layout: 'vertical',
+					align: 'right',
+					verticalAlign: 'top'
+				}
+			}
+		}]
+	}
+});
+}
+
+// 第二个柱状图
+function drawupTime(){
+var chart = Highcharts.chart('three1', {
+	chart:{
+		margin:[0,0,0,0],
+	},
+
+	credits:{
+		enabled:false
+	},
+	colors:['#7e2fc1'],
+	title: {
+		text: ''
+	},
+	xAxis: {
+		visible:false,
+		categories: ['一月', '二月', '三月', '四月', '五月', '六月', '七月', '八月', '九月', '十月', '十一月', '十二月']
+	},
+	yAxis: {
+		visible:false,
+	},
+	plotOptions:{
+		series:{
+			pointPadding:0
+		}
+	},
+	series: [{
+		type: 'column',
+		colorByPoint: true,
+		data: [29.9, 71.5, 106.4, 129.2, 144.0, 176.0, 135.6, 148.5, 216.4, 194.1, 95.6, 54.4,29.9, 71.5, 106.4, 129.2, 144.0, 176.0],
+		showInLegend: false
+	}]
+});
+}
+
+
+// 第三个环状态
+function drawSales(){
+var chart = Highcharts.chart('three2', {
+	colors:['#5c9c49','#9cdc87','#b6f7a6'],
+	chart: {
+		margin : [0, 0 , 0, 100]
+	},
+	credits:{
+		enabled:false
+	},
+	title: {
+		floating:true,
+		text: ''
+	},
+	tooltip: {
+		pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+	},
+	plotOptions: {
+		pie: {
+			allowPointSelect: true,
+			cursor: 'pointer',
+			dataLabels: {
+				enabled: false,
+			},
+		}
+	},
+	series: [{
+		type: 'pie',
+		innerSize: '60%',
+		name: 'Sales',
+		data: [
+			['Firefox',45.0],
+			['IE',26.8],
+			['Chrome',12.8],
+			['Safari',8.5],
+			['Opera',6.2],
+			['其他',0.7]
+		]
+	}]
+});
+}
+	}
+</script>
+   <!-- 主页面 -->
+<div class="row">
+	<div class="col-xs-12 pad"></div>
+<div class="col-xs-3 one">
+	<div class="row">
+		<div class="col-xs-12 one1 ">
+		<div class="one1-first">
+		<div class="row">
+		<div class="col-xs-5">
+			<div class="one1-second iconfont icon-yun"></div>
+		</div>
+		<div class="col-cs-7">
+			<span class="span1">99.9%</span>
+			<span class="span2">SERVER UPTIME</span>
+		</div>
+		</div>
+		</div>
+		</div>
+		<div class="col-xs-12 one2 ">
+		<div class="one1-first">
+		<div class="row">
+		<div class="col-xs-5">
+			<div class="one2-second iconfont icon-user"></div>
+		</div>
+		<div class="col-cs-7">
+			<span class="span3">117K</span>
+			<span class="span4">USERS TOTAL</span>
+		</div>
+		</div>
+		</div>
+		</div>
+		<div class="col-xs-12 one3 ">
+		<div class="one1-first">
+		<div class="row">
+		<div class="col-xs-5">
+			<div class="one3-second iconfont icon-18"></div>
+		</div>
+		<div class="col-cs-7">
+			<span class="span5">2,470</span>
+			<span class="span6">NEW DAILY PHOTOS</span>
+		</div>
+		</div>
+		</div>
+		</div>
+	</div>
+</div>
+<div class="col-xs-6 two" id="two"></div>
+<div class="two-first">
+	<span class="s1">14.85%</span>
+	<span class="s2">More visitors</span>
+</div>
+	
+
+<div class="col-xs-3 three">
+<div class="row">
+	<div class="col-xs-12 three1" id="three1">
+	</div>
+	<div class="three1-first">
+	<span class="s3">98.5%</span>
+	<span class="s4">CURRENT SERVER UPTIME</span>
+</div>
+	<div class="col-xs-12 three2" id="three2"></div>
+	</div>
+	<div class="three2-first">
+	<span class="s5">320,45</span>
+	<span class="s6">AVG OF SALES</span>
+</div>
+</div>
+</div>
+<div class="col-xs-6 four" id="four"></div>
+<div class="col-xs-6 five">
+	<div class="row">
+		<div class="col-xs-12 five1" id="five1"></div>
+		<div class="col-xs-12 five2" id="five2"></div>
+
+	</div>
+</div>
+
+</div>
+</div>
