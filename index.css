@@ -1,0 +1,59 @@
+body{
+	overflow:hidden;
+}
+.container{
+	border-right:1px solid rgba(204, 204, 204, 1);
+}
+.list-header{
+	background:#3d556d;
+	color:white;
+	font-size:1.2em;
+	/*text-align:center;*/
+	line-height:40px;
+}
+.contain-header{
+	background: white;
+}
+.list{
+	background:#282830;
+	color:white;
+}
+.list>ul>li:first-child{
+	height:120px;
+	line-height:125px;
+}
+.list>ul>li{
+	padding-left:15px;
+	height:36px;
+	line-height:36px;
+	border-bottom:1px solid rgba(51, 51, 51, 1);
+	font-weight:400;
+	font-size:1.1em;
+	cursor:pointer;
+}
+.left-1{
+	line-height: 40px;
+	position:relative;
+}
+.xiaosi{
+	height:15px;
+	width:15px;
+	border-radius:50%;
+	background:#e05140;
+	color:white;
+	position:absolute;
+	top:5px;
+	text-align: center;
+	line-height:15px;
+	font-size:0.9em;
+	left:72px;
+}
+.right{
+	height:40px;
+	line-height: 40px;
+	font-size: 0.9em;
+}
+.center{
+	background:#f0f0f0;
+	overflow: auto;
+}

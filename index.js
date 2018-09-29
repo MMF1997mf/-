@@ -1,0 +1,16 @@
+$(function(){
+		$(".center").load("html/shouye.html");
+	$(".li1").click(function(){
+		$(".center").load("html/shouye.html");
+	       location.reload(false);  
+	})
+	$(".li2").click(function(){
+		$(".center").load("./html/lanmuguanli.html");
+	})
+	$(".li3").click(function(){
+		$(".center").load("./html/zixunguanli.html");
+	})
+	$(".li4").click(function(){
+		$(".center").load("./html/yonghuguanli.html");
+	})
+})
