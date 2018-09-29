@@ -1,0 +1,58 @@
+.box{
+	margin-top:15px;
+	background:white;
+	/*height:700px;*/
+	padding-left:0;
+	padding-right:0;
+	border-radius:10px;
+	padding:10px;
+	margin-bottom:100px;
+}
+.kong{
+	height:10px;
+}
+#info .optionDiv select{
+		width:200px;
+		height:30px;
+	}
+.form-group .file{
+	height:70px;
+}
+.modal{
+	width:970px;
+	left:380px;
+	background-color: rgba(0,0,0,0.4);
+}
+.modal-dialog{
+	width:970px;
+	margin-top:0;
+	margin-right:0px;
+	background:white;
+}
+.modal-content{
+	background-color:white;
+}
+.backDiv{
+	cursor:pointer;
+}
+.modal-title{
+	font-size:1.1em;
+	line-height:40px;
+}
+.backDiv span{
+	font-size:1.1em;
+}
+.massageSpan{
+	color:red;
+}
+.box table i{
+	color:#66bb0d;
+	cursor:pointer;
+}
+.box table i:nth-child(2){
+		color:red;
+		margin-left: 10px;
+	}
+.Img{
+		width:200px;
+	}

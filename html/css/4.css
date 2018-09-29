@@ -1,0 +1,67 @@
+
+.box{
+	margin-top:15px;
+	background:white;
+	padding-left:0;
+	padding-right:0;
+	border-radius:10px;
+	padding-top:10px;
+	margin-bottom: 100px;
+}
+.box::after{
+	content: "";
+	display: block;
+	clear:both;
+}
+.kong{
+	height:10px;
+}
+.one,.two,.three{
+	height:300px;
+}
+.btn{
+	margin-left:14px;
+}
+.one-1{
+	padding-top:10px;
+	padding-left:30px;
+	padding-right:30px;
+	font-size:0.9em;
+}
+.one .thumbnail .img-circle{
+	width:100px;
+	height:100px;
+}
+.one-first td{
+height:30px;
+}
+.one-first tr>td:first-child{
+	width:90px;
+}
+.switch{
+	border-radius: 20px;
+}
+.modal{
+	width:970px;
+	left:380px;
+	background-color: rgba(0,0,0,0.4);
+}
+.modal-dialog{
+	width:300px;
+	margin-top:0;
+	margin-right:0px;
+}
+.modal-content{
+	/*height:800px;*/
+}
+.backDiv{
+	cursor:pointer;
+}
+.backDiv span{
+	font-size:1.1em;
+}
+.massageSpan{
+	color:red;
+}
+
+
