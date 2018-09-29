@@ -68,13 +68,16 @@
 <script>
 $(function(){
 	// 声明全局变量
+var categories=[];
 var currentCId='';
+var infoOption="新增";
 // 给select添加option，是栏目信息
 $('.modal-content').height($(window).height());
 addCategoryId();
 $('.addBtn').click(function(){
+	infoOption="新增";
 	// 清空表单，清空提示信息，查找栏目，追加节点，设置栏目值(封装函数)
-	$('.button[type=reset]').trigger();
+	$('button[type=reset]').trigger('click');
 	$('.messageSpan').html('');
 	addOption(currentCId);
 });
@@ -98,8 +101,10 @@ var obj={
 	categoryId:infoCategory,
 	content:infoContent,
 };
+if(infoOption=="修改"){
+	obj.id=currentId;
+}
 $.post(baseURL+'/manager/article/saveOrUpdateArticle',obj,function(res){
-	console.log(res);
 	if(res.status==200){
 		alert('保存成功');
 		$('#infoModal').hide();
@@ -115,6 +120,45 @@ $.post(baseURL+'/manager/article/saveOrUpdateArticle',obj,function(res){
 		$('.massageSpan').html(message);
 	}
 })
+
+// 删除
+$('#info table').on({click:function(){
+	var id=$(this).closest('tr').find('input[type=checkbox]').val();
+	var obj={
+		id:id
+	};
+	console.log("猪吗");
+$.get(baseURL+'/manager/article/deleteArticleById',obj,function(res){
+	console.log("不是");
+loadData(currentCId);
+if(res.status==200){
+	alert("删除成功");
+}else{
+	alert("删除失败");
+	console.log(res.message);
+}
+})
+}},'i[title=删除]');
+
+
+// 修改
+$('#info table').on({click:function(){
+	infoOption="修改";
+	$(".massageSpan").html('');
+var id=$(this).closest('tr').find('input[type=checkbox]').val();
+currentId=id;
+var cat=categories.filter(function(item){
+	return item.id==id;
+})[0];
+$('input[name=infoTitle]').val(cat.title);
+$('input[name=infoList]').val(cat.liststyle);
+$('textarea[name=infoContent]').val(cat.content);
+addOption(currentCId);
+
+}},'i[title=修改]')
+
+
+
 // value为设置的栏目值
 function addOption(value){
 // 给模态框的下拉框追加节点
@@ -160,11 +204,13 @@ var obj={
 	pageSize:1000,
 	categoryId:categoryId,
 };
+console.log("你是猪吗")
 $.get(baseURL+'/manager/article/findArticle',obj,function(res){
-	console.log(res);
+	console.log(res,"===================");
 	if(res.status==200){
 		// 遍历数据，生成节点
 if(res.data&&res.data.list){
+	categories=res.data.list;
 res.data.list.forEach(function(item){
  var $tr=$(`
 	<tr>
@@ -183,6 +229,8 @@ res.data.list.forEach(function(item){
  	`);
  $('#info table').append($tr);
 })
+}else{
+	alert("数据加载失败")
 }
 	}else{
 		console.log(res.message);
