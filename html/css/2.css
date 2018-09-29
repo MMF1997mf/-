@@ -1,0 +1,59 @@
+.box{
+	margin-top:15px;
+	background:white;
+	/*height:700px;*/
+	padding-left:0;
+	padding-right:0;
+	border-radius:10px;
+	position:relative;
+	padding:10px;
+	margin-bottom: 20px;
+	padding-bottom: 100px;
+}
+.kong{
+	height:10px;
+}
+.modal{
+	width:970px;
+	left:380px;
+	background-color: rgba(0,0,0,0.4);
+}
+.modal-dialog{
+	width:300px;
+	margin-top:0;
+	margin-right:0;
+	background:white;
+}
+.modal-content{
+	background-color:white;
+	clear:both;
+}
+
+.backDiv{
+	cursor:pointer;
+}
+
+.modal-title{
+	font-size:1.1em;
+	line-height:40px;
+}
+.backDiv span{
+	font-size:1.1em;
+	line-height:40px;
+}
+.backDiv{
+	float:left;
+}
+.massageSpan{
+	color:red;
+}
+#category table i{
+		color:#66bb0d;
+		cursor:pointer;
+}
+#category table i:nth-child(2){
+		color:red;
+		margin-left: 10px;
+	}
+
+
