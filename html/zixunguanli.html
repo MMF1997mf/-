@@ -71,6 +71,7 @@ $(function(){
 var categories=[];
 var currentCId='';
 var infoOption="新增";
+var cat={};
 // 给select添加option，是栏目信息
 $('.modal-content').height($(window).height());
 addCategoryId();
@@ -103,6 +104,9 @@ var obj={
 };
 if(infoOption=="修改"){
 	obj.id=currentId;
+	obj.publishtime=parseDate();
+	obj.readtimes=cat.readtimes;
+	console.log(obj.readtimes,"++++++++++++++++++++++++++++++++++");
 }
 $.post(baseURL+'/manager/article/saveOrUpdateArticle',obj,function(res){
 	if(res.status==200){
@@ -127,9 +131,7 @@ $('#info table').on({click:function(){
 	var obj={
 		id:id
 	};
-	console.log("猪吗");
 $.get(baseURL+'/manager/article/deleteArticleById',obj,function(res){
-	console.log("不是");
 loadData(currentCId);
 if(res.status==200){
 	alert("删除成功");
@@ -147,18 +149,38 @@ $('#info table').on({click:function(){
 	$(".massageSpan").html('');
 var id=$(this).closest('tr').find('input[type=checkbox]').val();
 currentId=id;
-var cat=categories.filter(function(item){
+ cat=categories.filter(function(item){
 	return item.id==id;
 })[0];
 $('input[name=infoTitle]').val(cat.title);
-$('input[name=infoList]').val(cat.liststyle);
+// $('input[name=infoList]').val(cat.liststyle);
+$('input[name=infoList]').prop('checked',false);   //prop设置布尔属性
+$('input[value='+cat.liststyle+']').prop('checked',true);
 $('textarea[name=infoContent]').val(cat.content);
 addOption(currentCId);
 
 }},'i[title=修改]')
 
-
-
+// 批量删除
+$(".batchBtn").click(function(){
+var ids=$('input[type=checkbox]:checked').map(function(index,item){
+		return $(item).val();
+	}).get();
+console.log(ids,"+++++++++++++++++++++++++");
+var obj={
+	ids:ids.toString()
+};
+$.post(baseURL+'/manager/article/batchDeleteArticle',obj,function(res){
+	console.log(res.status);
+	if(res.status==200){
+		alert("删除成功");
+	}else{
+		alert("删除失败");
+		console.log(res.message);
+	}
+	loadData(currentCId);
+})
+})
 // value为设置的栏目值
 function addOption(value){
 // 给模态框的下拉框追加节点
@@ -204,7 +226,6 @@ var obj={
 	pageSize:1000,
 	categoryId:categoryId,
 };
-console.log("你是猪吗")
 $.get(baseURL+'/manager/article/findArticle',obj,function(res){
 	console.log(res,"===================");
 	if(res.status==200){
@@ -237,6 +258,22 @@ res.data.list.forEach(function(item){
 		alert("数据加载失败");
 	}
 })
+}
+// 时间函数 返回2018-09-09 09:09:09
+
+function parseDate(){
+	var date=new Date();
+	var year=date.getFullYear();
+	var month=date.getMonth()+1;
+	var day=date.getDate();
+	var hours=date.getHours();
+	var minutes=date.getMinutes();
+	var seconds=date.getSeconds();
+
+return year+'-'+addZero(month)+'-'+addZero(day)+' '+addZero(hours)+':'+addZero(minutes)+':'+addZero(seconds);
+}
+function addZero(number){
+	return number<10?'0'+number:number;
 }
 })
 </script>
